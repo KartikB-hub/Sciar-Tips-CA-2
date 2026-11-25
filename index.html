@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sciar Tips · card tips paid to your team, every week</title>
+<style>
+  :root{--ink:#1b1f24;--muted:#5a6470;--line:#d9dee4;--bg:#f6f7f9;--accent:#0b6e4f}
+  *{box-sizing:border-box}
+  body{margin:0;font:18px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:#fff}
+  .wrap{max-width:760px;margin:0 auto;padding:0 18px}
+  header{border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;min-height:60px}
+  header b{font-size:20px}
+  .hero{padding:44px 0 24px}
+  .eyebrow{font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);margin:0}
+  h1{font-size:clamp(30px,6vw,44px);line-height:1.12;margin:8px 0 14px}
+  .lead{font-size:20px;color:var(--muted);max-width:36em}
+  .claims{display:grid;gap:14px;margin:28px 0;padding:0;list-style:none}
+  .claims li{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--bg)}
+  .claims strong{display:block;font-size:20px;margin-bottom:4px}
+  sup a{color:var(--accent);text-decoration:none;font-weight:700}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 40px}
+  .btn{display:inline-flex;align-items:center;min-height:52px;padding:12px 20px;border-radius:10px;font-weight:600;text-decoration:none}
+  .btn.primary{background:var(--accent);color:#fff}
+  .btn.secondary{border:2px solid var(--ink);color:var(--ink)}
+  .honest{border-left:4px solid var(--accent);padding:4px 14px;color:var(--muted);font-size:16px}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:20px 0 40px;font-size:14px;color:var(--muted)}
+  footer ol{padding-left:20px}
+  code{font-size:13px;word-break:break-word}
+</style>
+</head>
+<body>
+<header><div class="wrap"><b>Sciar Tips</b><a href="app.html" style="color:var(--ink)">Staff view demo</a></div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="eyebrow">For restaurant owners</p>
+    <h1>Card tips paid to your team every week, with the working shown.</h1>
+    <p class="lead">Sciar Tips takes the card tips from your terminal, splits them by the rule you set, and pays your staff each week. Each person can see how their own payout was worked out.</p>
+
+    <ul class="claims">
+      <li><strong>Every cent of card tips went to the team.</strong>
+        In our 12-week pilot at one Dublin restaurant, €31,754.13 in card tips came in and €31,754.09 was paid out to staff. The 4 cents is rounding.<sup><a href="#n1">1</a></sup></li>
+      <li><strong>Paid weekly, every week of the pilot.</strong>
+        12 weekly payouts in 12 weeks, to 13 staff across five roles.<sup><a href="#n2">2</a></sup></li>
+      <li><strong>Staff see their own working, and can ask privately.</strong>
+        In the alpha, each person sees their payout, the hours that earned points and the sum behind it, and can write a private question and see it listed with a reference (stored on their own phone in the alpha).<sup><a href="#n3">3</a></sup></li>
+    </ul>
+
+    <p class="honest">Sciar Tips is in alpha with one pilot restaurant. We would rather show you the numbers than make promises.</p>
+
+    <div class="cta">
+      <a class="btn primary" href="mailto:hello@sciar.example?subject=Sciar%20Tips%20for%20my%20restaurant&amp;body=Restaurant%20name%3A%0AArea%3A%0ANumber%20of%20staff%3A%0ABest%20time%20to%20call%3A">Ask to join the next pilot</a>
+      <a class="btn secondary" href="app.html">See the staff view</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Sources</b> (every number on this page comes from the pilot pack data in this repository):</p>
+    <ol>
+      <li id="n1"><code>data/takings.csv</code>, weeks 1–12: sum(card_tips_eur) = €31,754.13 (72 rows). <code>data/payouts.csv</code>, weeks 1–12: sum(tip_payout_eur) = €31,754.09 (152 rows). Card tips only; the service charge is not part of the tip pool.</li>
+      <li id="n2"><code>data/payouts.csv</code>: 12 distinct values of week, each with week_start on a Monday; 13 distinct staff_id; 5 distinct role.</li>
+      <li id="n3">What the alpha does today: see <a href="app.html">app.html</a>. In the alpha, questions are stored only in the sender's browser (simulated); nothing is sent yet.</li>
+    </ol>
+    <p>Sciar, its pilot restaurant and all figures are invented for an NCI teaching case (H9LOCHFFT CA2). hello@sciar.example is not a real address.</p>
+  </div>
+</footer>
+</body>
+</html>
